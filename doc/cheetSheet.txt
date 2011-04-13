@@ -1,0 +1,29 @@
+" vim: filetype=help foldmethod=marker foldmarker=<<<,>>> modifiable noreadonly
+
+Leader Ref:
+"add      delete the current line into the a register
+,cd       Change to directory of current file
+,rr       Replace tabs with spaces
+,r        Rdoc lookup for the word under the cursor
+,v        ruby source lookup for the path under the cursor
+
+<c-e>                           Use sparkup to generate HTML from a css
+selector
+"Np                             Paste the last Nth delete
+]p  	                        Just like p, but it automatically adjusts the indent level of the pasted code to match that of the code you paste into.
+:%s/\<word1\>/word2/gc          Confirm and replace all instance of word1 with word2 in the current file
+di)                             Delete the contents Inside the paren block we're currently in. 
+diw                             Delete the word under the cursor
+g;                              Jump to the last updated line
+ca{                             Use a (around) instead of i to include the parens themselves
+yib                             Yank the contents Inside of the current Block (, {, [, etc...
+:%s/\n/\r/g                     Replace newline with newline (notice difference between search and replace)
+:s/foo/bar/I                    Force a case sensitive search and replace of 'foo' in the current line
+:set ft=ruby                    Force the file type to ruby
+!ls *.rb                        Insert the list of ruby files in this directory at the cursor
+CTRL-U                          half screen Up
+CTRL-D                          hald screen Down
+CTRL-R                          Redo
+*                               Search for current word
+:set spell                      Turn on spellchecking (z= to correct, zg to iGnore)
+ysiw"                           Surround a word with quotes (surround.vim)
