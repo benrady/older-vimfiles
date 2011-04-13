@@ -28,3 +28,6 @@
 [submodule "bundle/snipmate-vim"]
 	path = bundle/snipmate-vim
 	url = https://github.com/msanders/snipmate.vim.git
+[submodule "bundle/specky"]
+	path = bundle/specky
+	url = https://github.com/vim-scripts/Specky
