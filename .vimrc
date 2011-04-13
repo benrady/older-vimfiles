@@ -125,6 +125,9 @@ let g:SuperTabMappingBackward="<s-space>"
 nmap <C-space> ea<C-n>
 imap <C-space> <C-n>
 
+" Even though this is in specky, if we don't do it here it doesn't take
+au BufRead,BufNewFile *_spec.rb set filetype=rspec
+
 function! <SID>ReformatAndClean()
   " Preparation: save last search, and cursor position.
   let _s=@/
