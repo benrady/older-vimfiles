@@ -1,6 +1,12 @@
 " Load Pathogen
 call pathogen#runtime_append_all_bundles()
 
+" Start neocomplcache_enable_at_startup
+" let g:neocomplcache_enable_at_startup = 1
+
+" Insert snippets with tab
+imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+
 " Don't need vi compatability mode
 set nocompatible
 
@@ -12,6 +18,7 @@ let mapleader = ","
 
 " Reload command-t cache using captial T
 map <leader>T :CommandTFlush<CR>:CommandT<CR>
+map <leader>t :CommandT<CR>
 
 " Nerdtree bindings
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
@@ -111,6 +118,10 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " Disable F1 help
 :nmap <F1> :echo<CR>
 :imap <F1> <C-o>:echo<CR>
+
+" Add more info in status line
+set statusline=%F%m%r%h%w\ [Line=%03l,Col=%03v][%p%%]\ [Type=%y]
+set laststatus=2
 
 " Remap Cmd-S to: Save All; Return to normal mode
 " FIXME Not sure this works!
