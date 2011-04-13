@@ -1,11 +1,15 @@
 " Load Pathogen
 call pathogen#runtime_append_all_bundles()
 
-" Start neocomplcache_enable_at_startup
-" let g:neocomplcache_enable_at_startup = 1
+" Configure NeoComplCache
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_snippets_dir = '~/.vim/bundle/snipmate-vim'
 
 " Insert snippets with tab
 imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" closes the popup if you hit backspace
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 
 " Don't need vi compatability mode
 set nocompatible
