@@ -1,3 +1,5 @@
+I use the Inconsolata font in this config, which you can find in ./fonts
+
 Remember to run this after you clone
 
     $ git submodule init
