@@ -1,16 +1,6 @@
 " Load Pathogen
 call pathogen#runtime_append_all_bundles()
 
-" Configure NeoComplCache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_snippets_dir = '~/.vim/bundle/snipmate-vim'
-
-" Insert snippets with tab
-imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" closes the popup if you hit backspace
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-
 " Don't need vi compatability mode
 set nocompatible
 
@@ -26,10 +16,6 @@ map <leader>t :CommandT<CR>
 
 " Nerdtree bindings
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
-
-" Remap omni-completion to CTRL+Space
-nmap <C-space> ea<C-n>
-imap <C-space> <C-n>
 
 " re-indent the whole file, remove unnecessary whitespace
 map <leader>i :call<SID>ReformatAndClean()<CR>
@@ -130,6 +116,14 @@ set laststatus=2
 " Remap Cmd-S to: Save All; Return to normal mode
 " FIXME Not sure this works!
 inoremenu File.Save <Esc>:wa<CR>
+
+" Snipmate key settings
+let g:SuperTabMappingForward="<c-space>"
+let g:SuperTabMappingBackward="<s-space>"
+
+" Remap omni-completion to CTRL+Space
+nmap <C-space> ea<C-n>
+imap <C-space> <C-n>
 
 function! <SID>ReformatAndClean()
   " Preparation: save last search, and cursor position.
