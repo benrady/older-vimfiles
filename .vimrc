@@ -5,6 +5,7 @@ call pathogen#runtime_append_all_bundles()
 set nocompatible
 
 let mapleader = ","
+let maplocalleader = ","
 
 " Snipmate key settings
 "let g:SuperTabMappingForward="<c-space>"
@@ -121,12 +122,19 @@ inoremenu File.Save <Esc>:wa<CR>
 let g:SuperTabMappingForward="<c-space>"
 let g:SuperTabMappingBackward="<s-space>"
 
+" vimClojure config
+let vimclojure#HighlightBuiltins=1 
+let vimclojure#ParenRainbow=1
+
 " Remap omni-completion to CTRL+Space
 nmap <C-space> ea<C-n>
 imap <C-space> <C-n>
 
+noremap <C-s> :!find src test -exec touch {} \;<CR><CR>
+
 " Even though this is in specky, if we don't do it here it doesn't take
 au BufRead,BufNewFile *_spec.rb set filetype=rspec
+au BufRead,BufNewFile *html.eco set filetype=html
 
 function! <SID>ReformatAndClean()
   " Preparation: save last search, and cursor position.
@@ -145,3 +153,4 @@ function! <SID>ReformatAndClean()
   let @/=_s
   call cursor(l, c)  
 endfunction
+

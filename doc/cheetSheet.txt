@@ -24,6 +24,7 @@ yib                             Yank the contents Inside of the current Block (,
 CTRL-U                          half screen Up
 CTRL-D                          hald screen Down
 CTRL-R                          Redo
+CTRL-W =                        Rebalance window splits
 *                               Search for current word
 :set spell                      Turn on spellchecking (z= to correct, zg to iGnore)
 ysiw"                           Surround a word with quotes (surround.vim)

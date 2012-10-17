@@ -1,5 +1,15 @@
 I use the Inconsolata font in this config, which you can find in ./fonts
 
+# Adding a submodule
+cd .vim
+git submodule add <git://url> bundle/<name>
+
+# Updating a submodule
+git submodule update
+OR
+cd bundle/<module>
+git pull
+
 Remember to run this after you clone
 
     $ git submodule init
