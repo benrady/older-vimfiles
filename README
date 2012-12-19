@@ -1,17 +1,37 @@
-I use the Inconsolata font in this config, which you can find in ./fonts
+#!/bin/bash
 
-# Adding a submodule
-cd .vim
-git submodule add <git://url> bundle/<name>
+# Source this file to add these operations as bash shell functions
 
-# Updating a submodule
-git submodule update
-OR
-cd bundle/<module>
-git pull
+# I use the Inconsolata font in this config, which you can find in ./fonts
 
-Remember to run this after you clone
+# Adds a bundle as a git submodule
+# git submodule add <git://url> bundle/<name>
+function vim-bundle-add() {
+  cd ~/.vim
+  echo "adding $1"
+}
 
-    $ git submodule init
-    $ git submodule update
+function vim-bundle-update() {
+  # Updating a submodule
+  git submodule update
+  # OR
+  # cd bundle/<module>
+  # git pull
+
+  #Remember to run this after you clone
+  #
+  #    $ git submodule init
+  #    $ git submodule update
+}
+
+# Removes a bundle 
+function vim-bundle-remove() {
+  cd ~/.vim
+  git config -f .gitmodules --remove-section submodule.bundle/${1%/}
+
+  # Not sure this is necessary
+  #git config -f .git/config --remove-section submodule.bundle/${1%/}
+
+  git rm --cached bundle/${1%/}
+}
 
