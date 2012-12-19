@@ -1,6 +1,11 @@
 #!/bin/bash
 
+## Notes ##
+
 # I use the Inconsolata font in this config, which you can find in ./fonts
+# Remember to run this after you clone
+#    $ git submodule init
+#    $ git submodule update
 
 ## Operations ##
 # Source this file to add these operations as bash shell functions
@@ -19,16 +24,16 @@ function vim-bundle-add() {
 }
 
 function vim-bundle-update() {
-  # Updating a submodule
-  git submodule update
-  # OR
-  # cd bundle/<module>
-  # git pull
+  #local bundle=bundle/${1%/}
 
-  #Remember to run this after you clone
-  #
-  #    $ git submodule init
-  #    $ git submodule update
+  pushd ~/.vim > /dev/null
+  git submodule init
+  git submodule update
+  # FIXME need to check if 1st arg is defined
+  # If so, update that bundle
+  # If not, update all bundles
+
+  popd > /dev/null
 }
 
 # Removes a bundle 
