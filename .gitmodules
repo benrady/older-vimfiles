@@ -1,18 +1,6 @@
 [submodule "bundle/ack-vim"]
 	path = bundle/ack-vim
 	url = https://github.com/mileszs/ack.vim.git
-[submodule "bundle/vim-ruby"]
-	path = bundle/vim-ruby
-	url = https://github.com/vim-ruby/vim-ruby
-[submodule "bundle/vim-ruby-refactoring"]
-	path = bundle/vim-ruby-refactoring
-	url = https://github.com/ecomba/vim-ruby-refactoring.git
-[submodule "bundle/vim-rooter"]
-	path = bundle/vim-rooter
-	url = https://github.com/airblade/vim-rooter
-[submodule "bundle/vim-rails"]
-	path = bundle/vim-rails
-	url = https://github.com/tpope/vim-rails.git
 [submodule "bundle/snipmate-vim"]
 	path = bundle/snipmate-vim
 	url = https://github.com/msanders/snipmate.vim.git

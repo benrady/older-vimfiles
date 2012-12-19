@@ -26,13 +26,15 @@ function vim-bundle-update() {
 
 # Removes a bundle 
 function vim-bundle-remove() {
+  local bundle=bundle/${1%/}
   cd ~/.vim
-  git config -f .gitmodules --remove-section submodule.bundle/${1%/}
+  git config -f .gitmodules --remove-section submodule.$bundle
 
   # Not sure this is necessary
-  #git config -f .git/config --remove-section submodule.bundle/${1%/}
+  #git config -f .git/config --remove-section submodule.$bundle
 
-  git rm --cached bundle/${1%/}
+  git rm --cached $bundle
+  rm -rf $bundle
   git add .gitmodules
   git commit -m "Removed $1 bundle"
 }
