@@ -12,7 +12,8 @@ function vim-bundle-add() {
   local name=${repo%.git}
 
   pushd ~/.vim > /dev/null
-  git submodule add $url bundle/$name
+  git submodule add -b master $url bundle/$name
+  git submodule init
   git commit -m "Added bundle $name"
   popd > /dev/null
 }
