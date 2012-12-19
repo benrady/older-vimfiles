@@ -9,7 +9,7 @@
 	url = https://github.com/tpope/vim-endwise.git
 [submodule "bundle/VimClojure"]
 	path = bundle/VimClojure
-	url = https://github.com/vim-scripts/VimClojure.git
+	url = git://github.com/vim-scripts/VimClojure.git
 [submodule "bundle/vim-sparkup"]
 	path = bundle/vim-sparkup
 	url = git://github.com/tristen/vim-sparkup.git
