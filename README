@@ -33,5 +33,7 @@ function vim-bundle-remove() {
   #git config -f .git/config --remove-section submodule.bundle/${1%/}
 
   git rm --cached bundle/${1%/}
+  git add .gitmodules
+  git commit -m "Removed $1 bundle"
 }
 
