@@ -1,14 +1,20 @@
 #!/bin/bash
 
-# Source this file to add these operations as bash shell functions
-
 # I use the Inconsolata font in this config, which you can find in ./fonts
 
+## Operations ##
+# Source this file to add these operations as bash shell functions
+
 # Adds a bundle as a git submodule
-# git submodule add <git://url> bundle/<name>
 function vim-bundle-add() {
-  cd ~/.vim
-  echo "adding $1"
+  local url=$1
+  local repo=${1##*/}
+  local name=${repo%.git}
+
+  pushd ~/.vim > /dev/null
+  git submodule add $url bundle/$name
+  git commit -m "Added bundle $name"
+  popd > /dev/null
 }
 
 function vim-bundle-update() {
@@ -27,7 +33,7 @@ function vim-bundle-update() {
 # Removes a bundle 
 function vim-bundle-remove() {
   local bundle=bundle/${1%/}
-  cd ~/.vim
+  pushd ~/.vim > /dev/null
   git config -f .gitmodules --remove-section submodule.$bundle
 
   # Not sure this is necessary
@@ -37,5 +43,6 @@ function vim-bundle-remove() {
   rm -rf $bundle
   git add .gitmodules
   git commit -m "Removed $1 bundle"
+  popd > /dev/null
 }
 
