@@ -5,7 +5,7 @@
 # Source this file in your ~/.bash_profile to add these operations as bash shell functions
 # Be sure to run the vim-bundle-update function below after cloning
 
-# Adds a bundle as a git submodule
+# Adds a bundle as a git submodule. Arg is the git clone url.
 function vim-bundle-add() {
   local url=$1
   local repo=${1##*/}
@@ -39,9 +39,14 @@ function vim-bundle-update() {
   popd > /dev/null
 }
 
-# Removes a bundle 
+# Removes a bundle. Arg is the bundle directory name.
 function vim-bundle-remove() {
   local bundle=bundle/${1%/}
+  if [[ $bundle == "bundle/" ]]; then
+    echo "Could not find bundle named '$1'. Installed bundles are:"
+    ls bundle/
+    return 1
+  fi
   pushd ~/.vim > /dev/null
   git config -f .gitmodules --remove-section submodule.$bundle
 
