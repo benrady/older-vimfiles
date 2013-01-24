@@ -31,3 +31,6 @@
 [submodule "bundle/Specky"]
 	path = bundle/Specky
 	url = git://github.com/vim-scripts/Specky.git
+[submodule "bundle/vim-snipmate"]
+	path = bundle/vim-snipmate
+	url = git://github.com/garbas/vim-snipmate.git
