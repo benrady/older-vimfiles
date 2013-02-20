@@ -1,5 +1,6 @@
 " Load Pathogen
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 " Remap Ctrl-j to: Save All; Return to normal mode
 imap <silent> <C-j> <Esc>:wa<CR>
@@ -79,7 +80,7 @@ set linebreak
 set visualbell
 
 " Ignore directories that have crap in them
-set wildignore+=vendor,tmp,target,.privatebuild
+set wildignore+=tmp,target,*.pyc,*.class
 
 " My Favorite font
 set guifont=Inconsolata:h18.00
@@ -99,9 +100,6 @@ set laststatus=2
 " vimClojure config
 let vimclojure#HighlightBuiltins=1 
 let vimclojure#ParenRainbow=1
-
-" Put CtrlP in mixed file mode (Files+Buffers+MRU)
-let g:ctrlp_cmd = 'CtrlPMixed'
 
 " map %% to expand to the current file's directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
