@@ -2,6 +2,10 @@
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+" Enable tag lookup with CTRL-P
+let g:ctrlp_extensions = ['tag']
+nmap <silent> <C-l> :CtrlPTag<CR>
+
 " Remap Ctrl-j to: Save All; Return to normal mode
 imap <silent> <C-j> <Esc>:wa<CR>
 nmap <silent> <C-j> <Esc>:wa<CR>
