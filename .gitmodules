@@ -40,12 +40,12 @@
 [submodule "bundle/vim-addon-mw-utils"]
 	path = bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule "bundle/snipmate-snippets"]
-	path = bundle/snipmate-snippets
-	url = https://github.com/honza/snipmate-snippets.git
 [submodule "bundle/vim-matchit"]
 	path = bundle/vim-matchit
 	url = git://github.com/tsaleh/vim-matchit.git
 [submodule "bundle/pydoc.vim"]
 	path = bundle/pydoc.vim
 	url = https://github.com/fs111/pydoc.vim
+[submodule "bundle/vim-snippets"]
+	path = bundle/vim-snippets
+	url = git://github.com/honza/vim-snippets.git
