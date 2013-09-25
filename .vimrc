@@ -23,9 +23,6 @@ set path=.,,**
 nmap <silent> <leader>ev :tabe $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-" re-indent the whole file, remove unnecessary whitespace
-map <leader>i :call<SID>ReformatAndClean()<CR>
-
 " Replace all instances of the word under the cursor
 nnoremap <Leader>s :%s/\V\<<C-r><C-w>\>/
 
@@ -36,6 +33,9 @@ runtime macros/matchit.vim
 set guioptions=ac
 :color blackboard  
 set history=10000
+
+" Delete buffer when a window is hidden
+set bufhidden=delete
 
 " Better tab settings
 set sts=2
@@ -112,47 +112,6 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 nmap <C-space> ea<C-n>
 imap <C-space> <C-n>
 
-" Shortcut to touch all files in a project
-noremap <C-s> :!find src test -exec touch {} \;<CR><CR>
-
-" Use * to search for the current selection in visual mode
-xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
-function! s:VSetSearch()
-  let temp = @s
-  norm! gv"sy
-  let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
-  let @s = temp
-endfunction
-
-" Define Qargs command to load quickfix results into args
-command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
-function! QuickfixFilenames()
-  let buffer_numbers = {}
-  for quickfix_item in getqflist()
-    let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
-  endfor
-  return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
-endfunction
-
 " Treat eco files as HTML
 " This shouldn't be here...but not sure where it goes
 au BufRead,BufNewFile *html.eco set filetype=html
-
-function! <SID>ReformatAndClean()
-  " Preparation: save last search, and cursor position.
-  let _s=@/
-  let l = line(".")
-  let c = col(".")
-
-  "Replace tabs with spaces
-  :1,$retab 
-  "Removing Trailing whitespace
-  %s/\s\+$//e 
-  "Reindent the file
-  :normal gg=G 
-
-  " Clean up: restore previous search history, and cursor position
-  let @/=_s
-  call cursor(l, c)  
-endfunction
-
