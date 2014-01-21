@@ -115,3 +115,8 @@ imap <C-space> <C-n>
 " Treat eco files as HTML
 " This shouldn't be here...but not sure where it goes
 au BufRead,BufNewFile *html.eco set filetype=html
+
+if filereadable(".vimrc.local") 
+  source .vimrc.local
+endif
+
