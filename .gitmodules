@@ -60,3 +60,7 @@
 	path = bundle/rainbow_parentheses.vim
 	url = https://github.com/kien/rainbow_parentheses.vim
 	branch = master
+[submodule "bundle/vim-clojure-highlight"]
+	path = bundle/vim-clojure-highlight
+	url = git@github.com:guns/vim-clojure-highlight.git
+	branch = master
