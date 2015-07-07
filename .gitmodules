@@ -64,3 +64,7 @@
 	path = bundle/vim-clojure-highlight
 	url = git@github.com:guns/vim-clojure-highlight.git
 	branch = master
+[submodule "bundle/vim-fireplace"]
+	path = bundle/vim-fireplace
+	url = git@github.com:tpope/vim-fireplace.git
+	branch = master
